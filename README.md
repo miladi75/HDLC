@@ -1,0 +1,2 @@
+## High-Level Data Link Control (HDLC) 
+is a protocol for data link layer communication used to ensure reliable data transmission. HDLC provides robust error detection and correction mechanisms using CRC and frame-level error handling. HDLC is typically used in synchronous communication, and is specially ideal for point-to-point and multi-point communication in envirenements where badnwidth efficiency, low latency and data relibility is critical.
