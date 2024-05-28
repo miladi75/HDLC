@@ -1,0 +1,454 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 [dds221s23@aurora tb]$ ./simulate.sh\
+\
+Compiling design\
+QuestaSim-64 vlog 10.5c Compiler 2016.07 Jul 20 2016\
+Start time: 19:29:14 on Feb 25,2021\
+vlog -sv ../rtl/AddressIF.sv ../rtl/hdlc.sv ../rtl/RxBuff.sv ../rtl/RxChannel.sv ../rtl/RxController.sv ../rtl/RxFCS.sv ../rtl/TxBuff.sv ../rtl/TxChannel.sv ../rtl/TxController.s       v ../rtl/TxFCS.sv\
+-- Compiling module AddressIF\
+-- Compiling module Hdlc\
+-- Compiling module RxBuff\
+-- Compiling module RxChannel\
+-- Compiling module RxController\
+-- Compiling module RxFCS\
+-- Compiling module TxBuff\
+-- Compiling module TxChannel\
+-- Compiling module TxController\
+-- Compiling module TxFCS\
+\
+Top level modules:\
+        Hdlc\
+End time: 19:29:14 on Feb 25,2021, Elapsed time: 0:00:00\
+Errors: 0, Warnings: 0\
+Success\
+\
+Compiling test files\
+QuestaSim-64 vlog 10.5c Compiler 2016.07 Jul 20 2016\
+Start time: 19:29:14 on Feb 25,2021\
+vlog -sv ./assertions_hdlc.sv ./bind_hdlc.sv ./in_hdlc.sv ./test_hdlc.sv ./testPr_hdlc.sv\
+-- Compiling module assertions_hdlc\
+-- Compiling module bind_hdlc\
+-- Compiling interface in_hdlc\
+-- Compiling module test_hdlc\
+-- Compiling program testPr_hdlc\
+\
+Top level modules:\
+        bind_hdlc\
+        test_hdlc\
+End time: 19:29:14 on Feb 25,2021, Elapsed time: 0:00:00\
+Errors: 0, Warnings: 0\
+Success\
+Success\
+\
+Simulating\
+Reading pref.tcl\
+\
+# 10.5c\
+\
+# vsim -assertdebug -c -voptargs="+acc" test_hdlc bind_hdlc -do "log -r *; run -all; exit"\
+# Start time: 19:29:15 on Feb 25,2021\
+# ** Note: (vsim-3812) Design is being optimized...\
+# ** Note: (vopt-143) Recognized 1 FSM in module "TxFCS(fast)".\
+# ** Note: (vopt-143) Recognized 1 FSM in module "RxBuff(fast)".\
+# ** Note: (vopt-143) Recognized 1 FSM in module "TxController(fast)".\
+# ** Note: (vopt-143) Recognized 1 FSM in module "RxController(fast)".\
+# ** Note: (vopt-143) Recognized 1 FSM in module "TxBuff(fast)".\
+# ** Warning: ./test_hdlc.sv(45): (vopt-2685) [TFMPC] - Too few port connections for 'u_dut'.  Expected 13, found 10.\
+# ** Warning: ./test_hdlc.sv(45): (vopt-2718) [TFMPC] - Missing connection for port 'Tx_Done'.\
+# ** Warning: ./test_hdlc.sv(45): (vopt-2718) [TFMPC] - Missing connection for port 'TxEN'.\
+# ** Warning: ./test_hdlc.sv(45): (vopt-2718) [TFMPC] - Missing connection for port 'Tx'.\
+# //  Questa Sim-64\
+# //  Version 10.5c linux_x86_64 Jul 20 2016\
+# //\
+# //  Copyright 1991-2016 Mentor Graphics Corporation\
+# //  All Rights Reserved.\
+# //\
+# //  QuestaSim and its associated documentation contain trade\
+# //  secrets and commercial or financial information that are the property of\
+# //  Mentor Graphics Corporation and are privileged, confidential,\
+# //  and exempt from disclosure under the Freedom of Information Act,\
+# //  5 U.S.C. Section 552. Furthermore, this information\
+# //  is prohibited from disclosure under the Trade Secrets Act,\
+# //  18 U.S.C. Section 1905.\
+# //\
+# Loading sv_std.std\
+# Loading work.test_hdlc(fast)\
+# Loading work.in_hdlc(fast)\
+# Loading work.Hdlc(fast)\
+# Loading work.AddressIF(fast)\
+# Loading work.TxController(fast)\
+# Loading work.TxBuff(fast)\
+# Loading work.TxFCS(fast)\
+# Loading work.TxChannel(fast)\
+# Loading work.RxController(fast)\
+# Loading work.RxBuff(fast)\
+# Loading work.RxFCS(fast)\
+# Loading work.RxChannel(fast)\
+# Loading work.testPr_hdlc(fast)\
+# Loading work.assertions_hdlc(fast)\
+# Loading work.bind_hdlc(fast)\
+# log -r *\
+#  run -all\
+# *************************************************************\
+#                    0 - Starting Test Program\
+# *************************************************************\
+# *************************************************************\
+#                 1000 - Starting task Receive - Normal\
+# *************************************************************\
+# PASS: Flag detect\
+# PASS: Flag detect\
+# PASS. Rx_Buff has data to read\
+# PASS. No Frame error\
+# PASS. No Abort signal\
+# PASS. No Overflow signal\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# *************************************************************\
+#                78250 - Starting task Receive - Abort\
+# *************************************************************\
+# PASS: Flag detect\
+# PASS: Abort signal\
+# PASS. Rx_Buff has no data\
+# PASS. No Frame error\
+# PASS. Abort Signal asserted\
+# PASS. No Overflow signal\
+# PASS. Rx_Buff is empty\
+# *************************************************************\
+#               268250 - Starting task Receive - Overflow\
+# *************************************************************\
+# PASS: Flag detect\
+# PASS: Flag detect\
+# PASS. Rx_Buff has data to read\
+# PASS. No Frame error\
+# PASS. No Abort signal\
+# PASS. Overflow signal asserted\
+# *************************************************************\
+#               822250 - Starting task Receive - Normal\
+# *************************************************************\
+# PASS: Flag detect\
+# PASS: Flag detect\
+# PASS. Rx_Buff has data to read\
+# PASS. No Frame error\
+# PASS. No Abort signal\
+# PASS. No Overflow signal\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# *************************************************************\
+#              1076750 - Starting task Receive - Normal\
+# *************************************************************\
+# PASS: Flag detect\
+# PASS: Flag detect\
+# PASS. Rx_Buff has data to read\
+# PASS. No Frame error\
+# PASS. No Abort signal\
+# PASS. No Overflow signal\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# *************************************************************\
+#              1740250 - Starting task Receive - Abort\
+# *************************************************************\
+# PASS: Flag detect\
+# PASS: Abort signal\
+# PASS. Rx_Buff has no data\
+# PASS. No Frame error\
+# PASS. Abort Signal asserted\
+# PASS. No Overflow signal\
+# PASS. Rx_Buff is empty\
+# *************************************************************\
+#              2266750 - Starting task Receive - Overflow\
+# *************************************************************\
+# PASS: Flag detect\
+# PASS: Flag detect\
+# PASS. Rx_Buff has data to read\
+# PASS. No Frame error\
+# PASS. No Abort signal\
+# PASS. Overflow signal asserted\
+# *************************************************************\
+#              2815750 - Starting task Receive - Normal\
+# *************************************************************\
+# PASS: Flag detect\
+# PASS: Flag detect\
+# PASS. Rx_Buff has data to read\
+# PASS. No Frame error\
+# PASS. No Abort signal\
+# PASS. No Overflow signal\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# *************************************************************\
+#              2971250 - Starting task Receive - Normal\
+# *************************************************************\
+# PASS: Flag detect\
+# PASS: Flag detect\
+# PASS. Rx_Buff has data to read\
+# PASS. No Frame error\
+# PASS. No Abort signal\
+# PASS. No Overflow signal\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# PASS. Rx_Buff has correct data\
+# *************************************************************\
+#              3236250 - Finishing Test Program\
+# *************************************************************\
+# ** Note: $stop    : ./testPr_hdlc.sv(134)\
+#    Time: 3236250 ns  Iteration: 1  Instance: /test_hdlc/u_testPr\
+# Break in Module testPr_hdlc at ./testPr_hdlc.sv line 134\
+# Stopped at ./testPr_hdlc.sv line 134\
+#  exit\
+# *********************************\
+# *                               *\
+# *     Assertion Errors: 0       *\
+# *                               *\
+# *********************************\
+# End time: 19:29:17 on Feb 25,2021, Elapsed time: 0:00:02\
+# Errors: 0, Warnings: 4\
+Success\
+[dds221s23@aurora tb]$\
+}
